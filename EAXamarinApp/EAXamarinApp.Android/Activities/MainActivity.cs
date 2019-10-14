@@ -8,6 +8,9 @@ using Android.Support.V4.View;
 using Android.Views;
 using Android.Widget;
 using EAXamarinApp.Helpers;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 
 namespace EAXamarinApp.Droid
 {
@@ -25,6 +28,9 @@ namespace EAXamarinApp.Droid
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            AppCenter.Start("00f99de0-ee15-4b61-9b80-bccfc14d56ec",
+                   typeof(Analytics), typeof(Crashes));
+
             base.OnCreate(savedInstanceState);
 
             adapter = new TabsAdapter(this, SupportFragmentManager);
