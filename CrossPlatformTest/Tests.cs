@@ -26,26 +26,24 @@ namespace CrossPlatformTest
         }
 
         //Recorded test 
-        //[Test]
-        //public void NewTest()
-        //{
-        //    app.Tap(x => x.Text("Learn F#"));
-        //    app.Tap(x => x.Id("DummyID"));
-        //    app.Tap(x => x.Marked("Navigate up"));
-        //    app.Tap(x => x.Text("Buy some new candles"));
-        //    app.Tap(x => x.Marked("Navigate up"));
-        //    app.Tap(x => x.Text("Finish a todo list"));
-        //    app.Tap(x => x.Marked("Navigate up"));
-        //    app.Tap(x => x.Text("About"));
-        //    app.Tap(x => x.Text("Browse"));
-        //    app.Tap(x => x.Marked("More options"));
-        //    app.Tap(x => x.Id("title"));
-        //    app.EnterText(x => x.Id("txtTitle"), "te");
-        //    app.Tap(x => x.Id("txtDesc"));
-        //    app.EnterText(x => x.Id("txtDesc"), "5rt3w");
-        //    app.DismissKeyboard();
-        //    app.Tap(x => x.Id("save_button"));
-        //}
+        [Test]
+        public void NewTest()
+        {
+            app.Repl(); 
+            app.Tap(x => x.Text("Learn F#"));
+            app.EnterText(x => x.Text("Learn F#"),"lalala");
+            app.Tap(x => x.Text("Buy some new candles"));
+            app.Tap(x => x.Text("Finish a todo list"));
+            app.Tap(x => x.Text("About"));
+            app.Tap(x => x.Text("Browse"));
+            app.Tap(x => x.Marked("More options"));
+            app.Tap(x => x.Id("title"));
+            app.EnterText(x => x.Id("txtTitle"), "te");
+            app.Tap(x => x.Id("txtDesc"));
+            app.EnterText(x => x.Id("txtDesc"), "5rt3w");
+            app.DismissKeyboard();
+            app.Tap(x => x.Id("save_button"));
+        }
 
         //Handcoded Native app code
         [Test]
@@ -68,33 +66,34 @@ namespace CrossPlatformTest
         }
 
         //Recorded Hybrid application code
-        [Test]
-        public void NewTest()
-        {
-            app.EnterText(x => x.Css("INPUT#txtUserName"), "EATEST");
-            app.Tap(x => x.XPath("//span[text()='About']"));
-            app.Tap(x => x.XPath("//span[text()='Contact']"));
-            app.Tap(x => x.XPath("//span[text()='Home']"));
-        }
+        //[Test]
+        //public void NewTest()
+        //{
+        //    app.Repl();
+        //    app.EnterText(x => x.Css("INPUT#txtUserName"), "EATEST");
+        //    app.Tap(x => x.XPath("//span[text()='About']"));
+        //    app.Tap(x => x.XPath("//span[text()='Contact']"));
+        //    app.Tap(x => x.XPath("//span[text()='Home']"));
+        //}
 
 
-        [Test]
-        public void UsingPOM()
-        {
-            HomePage homePage = new HomePage();
-            AddItemPage addItemPage = new AddItemPage();
+        //[Test]
+        //public void UsingPOM()
+        //{
+        //    HomePage homePage = new HomePage();
+        //    AddItemPage addItemPage = new AddItemPage();
 
-            //Click Add
-            homePage.ClickAdd();
-            //Create list
-            addItemPage.AddItem("EA", "EA is awesome !!");
-            //Wait for element
-            homePage.WaitForListElement();
-            //Finally Assertion
-            var elementCount = homePage.GetElementCount();
-            Assert.That(elementCount, Is.EqualTo(1), "There is no such element being added in app list");
+        //    //Click Add
+        //    homePage.ClickAdd();
+        //    //Create list
+        //    addItemPage.AddItem("EA", "EA is awesome !!");
+        //    //Wait for element
+        //    homePage.WaitForListElement();
+        //    //Finally Assertion
+        //    var elementCount = homePage.GetElementCount();
+        //    Assert.That(elementCount, Is.EqualTo(1), "There is no such element being added in app list");
 
-        }
+        //}
 
     }
 }

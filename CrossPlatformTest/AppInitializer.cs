@@ -14,8 +14,8 @@ namespace CrossPlatformTest
             {
                 return ConfigureApp
                     .Android
+                    .PreferIdeSettings()
                     .InstalledApp("com.companyname.EAXamarinApp")
-                    //.ApkFile(@"C:\ionictest\eanew\platforms\android\build\outputs\apk\android-debug.apk")
                     .StartApp();
             }
 
